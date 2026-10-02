@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "id": "hverbruggen.omabisync",
+  "name": "omabisync",
+  "version": "0.2.0",
+  "author": "hverbruggen",
+  "license": "MIT",
+  "description": "Status of rclone bisync with cloud storage: last and next sync, recent runs, and which files moved.",
+  "kinds": [
+    "bar-widget"
+  ],
+  "entryPoints": {
+    "barWidget": "Panel.qml"
+  },
+  "barWidget": {
+    "displayName": "omabisync",
+    "description": "Watch an rclone bisync timer: last run, next run, changes, errors, sync now and journal.",
+    "category": "Files",
+    "allowMultiple": false,
+    "defaultSection": "right",
+    "defaults": {
+      "unit": "rclone-bisync-sync",
+      "refreshIntervalSec": 30,
+      "historyDays": 3,
+      "maxRuns": 4,
+      "maxChanges": 8
+    },
+    "schema": [
+      {
+        "key": "unit",
+        "type": "string",
+        "label": "systemd --user unit name (without .service/.timer)",
+        "defaultValue": "rclone-bisync-sync"
+      },
+      {
+        "key": "refreshIntervalSec",
+        "type": "integer",
+        "label": "Refresh interval (seconds)",
+        "min": 10,
+        "max": 3600,
+        "step": 5,
+        "defaultValue": 30
+      },
+      {
+        "key": "historyDays",
+        "type": "integer",
+        "label": "Days of journal history to read",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "defaultValue": 3
+      },
+      {
+        "key": "maxRuns",
+        "type": "integer",
+        "label": "Recent runs to show",
+        "min": 1,
+        "max": 20,
+        "step": 1,
+        "defaultValue": 4
+      },
+      {
+        "key": "maxChanges",
+        "type": "integer",
+        "label": "Recent change groups to show",
+        "min": 1,
+        "max": 30,
+        "step": 1,
+        "defaultValue": 8
+      }
+    ]
+  }
+}
