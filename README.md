@@ -8,7 +8,7 @@ This widget, along with rclone and systemd, replaces the typically bloated, unat
 
 The bar icon is a sync symbol showing whether the last sync worked, a subtle blinking dot while a sync is running. It turns red when the last run failed or the unit can't be found and dims when the timer is paused. Left-click opens the popup, right-click refreshes it, middle-click opens the journal.
 
-![The omabisync popup](screenshots/panel.png)
+<img src="preview.png" alt="The omabisync popup" width="411">
 
 The popup has:
 
