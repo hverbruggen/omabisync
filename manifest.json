@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "hverbruggen.omabisync",
   "name": "omabisync",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "hverbruggen",
   "license": "MIT",
   "description": "Status of rclone bisync with cloud storage: last and next sync, recent runs, and which files moved.",

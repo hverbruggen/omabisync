@@ -83,9 +83,12 @@ Item {
   }
 
   function toggleTimer() {
-    _desiredTimer = timerOn ? 0 : 1
-    runControl(["systemctl", "--user", timerOn ? "stop" : "start", activeUnit + ".timer"],
-               timerOn ? "Timer paused until next login" : "Timer resumed")
+    if (controlProcess.running) return
+    // Decide once: setting _desiredTimer below changes timerOn.
+    var pause = timerOn
+    _desiredTimer = pause ? 0 : 1
+    runControl(["systemctl", "--user", pause ? "stop" : "start", activeUnit + ".timer"],
+               pause ? "Timer paused until next login" : "Timer resumed")
   }
 
   function runControl(command, message) {
